@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music App</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- MAIN PLAYER -->
+  <div class="main-player">
+
+    <img
+      src="https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg"
+      class="cover"
+    >
+
+    <h1 id="title">Blinding Lights</h1>
+
+    <p id="artist">The Weeknd</p>
+
+  </div>
+
+
+  <!-- MUSIC BAR -->
+  <div class="music-bar">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <img
+      src="https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg"
+      class="small-cover">
+
+      <div>
+
+        <h4 id="bottomTitle">Blinding Lights</h4>
+
+        <p id="bottomArtist">The Weeknd</p>
+
+      </div>
+
+    </div>
+
+
+    <!-- MIDDLE -->
+    <div class="middle">
+
+      <div class="controls">
+
+        <i class="fa-solid fa-shuffle" id="shuffle"></i>
+
+        <i class="fa-solid fa-backward-step" id="prev"></i>
+
+        <button id="play">
+          <i class="fa-solid fa-play"></i>
+        </button>
+
+        <i class="fa-solid fa-forward-step" id="next"></i>
+
+        <i class="fa-solid fa-repeat"></i>
+
+      </div>
+
+
+      <div class="progress-area">
+
+        <span id="currentTime">0:00</span>
+
+        <input type="range" value="0" id="progress">
+
+        <span id="duration">0:00</span>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT -->
+    <div class="right">
+
+      <i class="fa-solid fa-list" id="queue"></i>
+
+      <i class="fa-solid fa-volume-high"></i>
+
+      <input
+      type="range"
+      id="volume"
+      min="0"
+      max="1"
+      step="0.01"
+      value="1">
+
+      <i class="fa-solid fa-expand" id="fullscreen"></i>
+
+    </div>
+
+  </div>
+
+
+  <!-- QUEUE PANEL -->
+  <div class="queue-panel" id="queuePanel">
+
+    <div class="queue-header">
+
+  <h3>Queue</h3>
+
+  <i class="fa-solid fa-xmark" id="closeQueue"></i>
+
+</div>
+
+    <div id="queueSongs"></div>
+
+  </div>
+
+
+  <audio id="song"></audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
