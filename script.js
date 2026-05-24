@@ -2,21 +2,21 @@ const songs = [
   { 
     title: "Nanchaku",
     artist: "Seedhe Maut",
-    src: "songs/Nanchaku (PenduJatt.Com.se).mp3",
+    src: "Songs/Nanchaku (PenduJatt.Com.Se).mp3",
     cover: "https://pendujatt.com.se/uploads/album/seedhe-maut.webp",
     color: "linear-gradient(135deg,#6b8e23,#283618)"
   },
   {
     title: "Blinding Lights",
     artist: "The Weeknd",
-    src: "songs/Blinding Lights (PenduJatt.Com.se).mp3",
+    src: "Songs/Blinding Lights (PenduJatt.Com.Se).mp3",
     cover: "https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg",
     color: "linear-gradient(135deg,#ff9966,#ff5e62)"
   },
   {
     title: "Namastute",
     artist: "Seedhe Maut",
-    src: "Songs/Namastute (PenduJatt.Com.se).mp3",
+    src: "Songs/Namastute (PenduJatt.Com.Se).mp3",
     cover: "https://pendujatt.com.se/uploads/album/seedhe-maut.webp",
     color: "linear-gradient(135deg,#6b8e23,#283618)"
   }
