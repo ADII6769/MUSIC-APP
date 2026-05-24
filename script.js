@@ -252,3 +252,57 @@ document.querySelectorAll(".home-song-row").forEach(row => {
     playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
   });
 });
+
+// --- FULLSCREEN & QUEUE FIX ---
+
+const fullscreenBtn = document.getElementById("fullscreen");
+const queueBtn = document.getElementById("queue");
+const queuePanel = document.getElementById("queuePanel");
+const closeQueue = document.getElementById("closeQueue");
+const queueSongs = document.getElementById("queueSongs");
+
+// Fullscreen Toggle
+fullscreenBtn.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    fullscreenBtn.className = "fa-solid fa-compress"; // Changes icon
+  } else {
+    document.exitFullscreen();
+    fullscreenBtn.className = "fa-solid fa-expand"; // Changes icon back
+  }
+});
+
+// Open/Close Queue Panel
+queueBtn.addEventListener("click", () => {
+  queuePanel.classList.toggle("active");
+});
+
+closeQueue.addEventListener("click", () => {
+  queuePanel.classList.remove("active");
+});
+
+// Populate the Queue with aesthetic rows
+songs.forEach((s, index) => {
+  const div = document.createElement("div");
+  div.className = "queue-song";
+  div.innerHTML = `
+    <div style="display:flex; align-items:center; gap:12px;">
+      <img src="${s.cover}" style="width:40px; height:40px; border-radius:6px; object-fit:cover;">
+      <div>
+        <h4 style="font-size:14px; margin-bottom:2px;">${s.title}</h4>
+        <p style="font-size:12px; color:#b3b3b3;">${s.artist}</p>
+      </div>
+    </div>
+  `;
+  
+  // Play song from queue
+  div.addEventListener("click", () => {
+    currentSong = index;
+    loadSong(currentSong);
+    song.play();
+    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    queuePanel.classList.remove("active"); // Auto-close queue after picking a song
+  });
+  
+  queueSongs.appendChild(div);
+});
