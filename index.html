@@ -1,128 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Music App</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adii Music</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
-  <!-- MAIN PLAYER -->
-  <div class="main-player">
-
-    <img
-      src="https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg"
-      class="cover"
-    >
-
-    <h1 id="title">Blinding Lights</h1>
-
-    <p id="artist">The Weeknd</p>
-
+  <div class="sidebar">
+    <h1 class="logo">Musify</h1>
+    <div class="menu">
+      <div class="menu-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </div>
+      <div class="menu-item">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search</span>
+      </div>
+      <div class="menu-item">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favorites</span>
+      </div>
+      <div class="menu-item">
+        <i class="fa-solid fa-music"></i>
+        <span>Library</span>
+      </div>
+    </div>
   </div>
 
+  <div class="main-content">
 
-  <!-- MUSIC BAR -->
+    <div class="top-bar">
+      <h2>Good Evening 🎵</h2>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search songs...">
+      </div>
+    </div> 
+    
+    <div id="homeView">
+      
+      <div class="section">
+        <h3>Made For You</h3>
+        <div class="playlist-grid">
+          <div class="playlist-card" data-index="0">
+            <img src="https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg">
+            <h4>Late Night Drive</h4>
+            <p>The Weeknd • Synthwave</p>
+          </div>
+          <div class="playlist-card" data-index="1">
+            <img src="https://pendujatt.com.se/uploads/album/seedhe-maut.webp">
+            <h4>Underground Heat</h4>
+            <p>Seedhe Maut • Hip-Hop</p>
+          </div>
+          <div class="playlist-card" data-index="2">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop">
+            <h4>Chill Vibes</h4>
+            <p>Lo-Fi • Relax</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Trending Now</h3>
+        <div class="trending-list">
+           <div class="compact-song-row home-song-row" data-index="0">
+             <div class="row-left">
+               <span class="row-index">1</span>
+               <img src="https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg" class="row-cover">
+               <div class="row-info">
+                 <h4>Blinding Lights</h4>
+                 <p>The Weeknd</p>
+               </div>
+             </div>
+             <div class="row-right">
+               <i class="fa-solid fa-play"></i>
+             </div>
+           </div>
+
+           <div class="compact-song-row home-song-row" data-index="1">
+             <div class="row-left">
+               <span class="row-index">2</span>
+               <img src="https://pendujatt.com.se/uploads/album/seedhe-maut.webp" class="row-cover">
+               <div class="row-info">
+                 <h4>Nanchaku</h4>
+                 <p>Seedhe Maut</p>
+               </div>
+             </div>
+             <div class="row-right">
+               <i class="fa-solid fa-play"></i>
+             </div>
+           </div>
+        </div>
+      </div>
+
+    </div> <div id="listView" class="section" style="display: none;">
+      <h2 id="listTitle" style="font-size: 34px; margin-bottom: 24px;">Your List</h2>
+      <div id="listContent">
+        </div>
+    </div>
+
+  </div> <div class="expanded-player" id="expandedPlayer">
+    <button id="closeExpanded">
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <img src="" id="largeCover" class="large-cover">
+    <h2 id="largeTitle">Title</h2>
+    <p id="largeArtist">Artist</p>
+  </div>
+
   <div class="music-bar">
-
-    <!-- LEFT -->
     <div class="left">
-
-      <img
-      src="https://cdn-images.dzcdn.net/images/cover/a38ef87aa2917be1fe62866357f8ade1/500x500-000000-80-0-0.jpg"
-      class="small-cover">
-
-      <div>
-
-        <h4 id="bottomTitle">Blinding Lights</h4>
-
-        <p id="bottomArtist">The Weeknd</p>
-
+      <img src="" class="small-cover">
+      <div class="song-info">
+        <h4 id="bottomTitle">Select a song</h4>
+        <p id="bottomArtist">-</p>
       </div>
-
+      <button id="favoriteBtn"><i class="fa-regular fa-heart"></i></button>
     </div>
 
-
-    <!-- MIDDLE -->
     <div class="middle">
-
       <div class="controls">
-
         <i class="fa-solid fa-shuffle" id="shuffle"></i>
-
         <i class="fa-solid fa-backward-step" id="prev"></i>
-
-        <button id="play">
-          <i class="fa-solid fa-play"></i>
-        </button>
-
+        <button id="play"><i class="fa-solid fa-play"></i></button>
         <i class="fa-solid fa-forward-step" id="next"></i>
-
         <i class="fa-solid fa-repeat"></i>
-
       </div>
-
-
       <div class="progress-area">
-
         <span id="currentTime">0:00</span>
-
         <input type="range" value="0" id="progress">
-
         <span id="duration">0:00</span>
-
       </div>
-
     </div>
 
-
-    <!-- RIGHT -->
     <div class="right">
-
       <i class="fa-solid fa-list" id="queue"></i>
-
       <i class="fa-solid fa-volume-high"></i>
-
-      <input
-      type="range"
-      id="volume"
-      min="0"
-      max="1"
-      step="0.01"
-      value="1">
-
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
       <i class="fa-solid fa-expand" id="fullscreen"></i>
-
     </div>
-
   </div>
-
-
-  <!-- QUEUE PANEL -->
-  <div class="queue-panel" id="queuePanel">
-
-    <div class="queue-header">
-
-  <h3>Queue</h3>
-
-  <i class="fa-solid fa-xmark" id="closeQueue"></i>
-
-</div>
-
-    <div id="queueSongs"></div>
-
-  </div>
-
 
   <audio id="song"></audio>
-
   <script src="script.js"></script>
 
 </body>
